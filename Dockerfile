@@ -1,7 +1,7 @@
 FROM webdevops/php-nginx:ubuntu-16.04
 
 RUN apt-get update && \
-    apt-get install curl nano php7.0-imap && \
+    apt-get install -y curl php7.0-imap && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN apt-get update && \
@@ -25,6 +25,7 @@ ENV WEB_DOCUMENTROOT /app/frontend/web
 VOLUME ["/app"]
 
 WORKDIR /app
+
 
 #onstart
 #CMD ["/bin/bash", "/init.sh"]
